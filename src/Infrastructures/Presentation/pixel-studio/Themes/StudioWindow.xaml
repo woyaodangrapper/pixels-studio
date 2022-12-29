@@ -1,0 +1,55 @@
+﻿<Window x:Class="Pixel.Studio.Themes.StudioWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ViewControls="clr-namespace:Pixel.Studio.Themes.Controls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Maps Studio 2022"  Height="900" Width="1700" BorderThickness="0" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}" WindowStartupLocation="CenterScreen">
+
+    <Window.Effect>
+        <!--背景阴影-->
+        <DropShadowEffect ShadowDepth="1" BlurRadius="10" Direction="270" Opacity="1" Color="#FF007ACC" />
+    </Window.Effect>
+    <Window.Style>
+        <Style TargetType="{x:Type Window}">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="WindowStyle" Value="None" />
+            <Setter Property="ResizeMode" Value="CanResize" />
+            <Setter Property="AllowsTransparency" Value="True" />
+            <Setter Property="WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <WindowChrome CaptionHeight="1" ResizeBorderThickness="10" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Style>
+    <Window.Resources>
+        <RoutedUICommand x:Key="WinKeyDown" Text="F12" />
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Gesture="F12" Command="{StaticResource WinKeyDown }" />
+        <!--F1是键盘上的热键，核心属性HotkeyManager.RegisterGlobalHotkey="true" 加入即可无需焦点就可以触发热键，也不会发生全局热键的情况-->
+    </Window.InputBindings>
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource WinKeyDown}"
+                   CanExecute="F12_CanExecute" />
+        <!--CanExecute触发事件-->
+    </Window.CommandBindings>
+
+    <Grid x:Name="Min"  Margin="0,0,0,0">
+
+        <Grid x:Name="BackgroundMongolia" Grid.RowSpan="2">
+            <Border Background="#33007ACC" CornerRadius="0">
+                <Border.Effect>
+                    <BlurEffect Radius="2" KernelType="Box"  RenderingBias="Quality" />
+                </Border.Effect>
+            </Border>
+            <Border CornerRadius="0" BorderBrush="#FF004370" BorderThickness="1" />
+        </Grid>
+        <ViewControls:FooterContainer x:Name="FooterContainer" VerticalAlignment="Bottom" />
+        <ViewControls:PaddingContainer x:Name="PaddingContainer" Margin="0,0,0,25" />
+        <ViewControls:QuickControl x:Name="QuickControl" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0,3,3,0" />
+    </Grid>
+</Window>

@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="..\..\..\..\build\common.props" />
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net7.0-windows</TargetFramework>
+		<RootNamespace>pixel_studio</RootNamespace>
+		<UseWPF>true</UseWPF>
+		<AssemblyName>PIXELSTUDIO</AssemblyName>
+	</PropertyGroup>
+	<ItemGroup>
+		<Folder Include="Converters\" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
+		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.1462.37" />
+	</ItemGroup>
+</Project>
